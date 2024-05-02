@@ -1,2 +1,0 @@
-/usr/bin/ar qc libtinympc.a CMakeFiles/tinympc.dir/admm.cpp.o CMakeFiles/tinympc.dir/codegen.cpp.o
-/usr/bin/ranlib libtinympc.a

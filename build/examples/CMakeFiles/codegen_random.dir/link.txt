@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/codegen_random.dir/codegen_random.cpp.o -o codegen_random  ../src/tinympc/libtinympc.a 
