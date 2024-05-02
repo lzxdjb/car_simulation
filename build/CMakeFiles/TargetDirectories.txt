@@ -1,0 +1,10 @@
+/home/lzx/lzx/TinyMPC/build/CMakeFiles/edit_cache.dir
+/home/lzx/lzx/TinyMPC/build/CMakeFiles/rebuild_cache.dir
+/home/lzx/lzx/TinyMPC/build/src/tinympc/CMakeFiles/tinympc.dir
+/home/lzx/lzx/TinyMPC/build/src/tinympc/CMakeFiles/tinympcShared.dir
+/home/lzx/lzx/TinyMPC/build/src/tinympc/CMakeFiles/edit_cache.dir
+/home/lzx/lzx/TinyMPC/build/src/tinympc/CMakeFiles/rebuild_cache.dir
+/home/lzx/lzx/TinyMPC/build/examples/CMakeFiles/quadrotor_tracking.dir
+/home/lzx/lzx/TinyMPC/build/examples/CMakeFiles/quadrotor_hovering.dir
+/home/lzx/lzx/TinyMPC/build/examples/CMakeFiles/edit_cache.dir
+/home/lzx/lzx/TinyMPC/build/examples/CMakeFiles/rebuild_cache.dir

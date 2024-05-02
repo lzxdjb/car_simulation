@@ -106,10 +106,14 @@ extern "C"
         x0 = work.Xref.col(0);
 
         // std::cout << work.Xref << std::endl;
+        for (int o =  0 ; o < 10 ; o ++)
+        {
+
+        
 
         for (int k = 0; k < NTOTAL - NHORIZON; ++k)
         {
-            std::cout << "tracking error: " << (x0 - work.Xref.col(1)).norm() << std::endl;
+            // std::cout << "tracking error: " << (x0 - work.Xref.col(1)).norm() << std::endl;
 
             // 1. Update measurement
             work.x.col(0) = x0;
@@ -135,7 +139,8 @@ extern "C"
             // std::cout << x0.transpose().format(CleanFmt) << std::endl;
         }
 
-        return 0;
+        // return 0;
+    }
     }
 
 } /* extern "C" */
