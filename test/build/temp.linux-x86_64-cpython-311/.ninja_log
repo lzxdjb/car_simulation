@@ -1,0 +1,9 @@
+# ninja log v5
+0	14334	1716293951573347218	/home/lzx/lzx/TinyMPC/test/build/temp.linux-x86_64-cpython-311/graph_max.o	8603da75336ff43f
+8	38802	1716294130439751233	/home/lzx/lzx/TinyMPC/test/build/temp.linux-x86_64-cpython-311/graph_max_kernel.o	2c591a20f366cdb2
+3	14385	1716379293346683720	/home/lzx/lzx/CPU_simulation/test/build/temp.linux-x86_64-cpython-311/graph_max.o	5ae6351bf44d6a75
+3	39005	1716379317965684696	/home/lzx/lzx/CPU_simulation/test/build/temp.linux-x86_64-cpython-311/graph_max_kernel.o	26a61b3b9c0b95c1
+54	13618	1716379469835819701	/home/lzx/lzx/CPU_simulation/test/build/temp.linux-x86_64-cpython-311/graph_max.o	5ae6351bf44d6a75
+8	13039	1716379983822479392	/home/lzx/lzx/CPU_simulation/test/build/temp.linux-x86_64-cpython-311/graph_max.o	5ae6351bf44d6a75
+8	38045	1716380501726697841	/home/lzx/lzx/CPU_simulation/test/build/temp.linux-x86_64-cpython-311/graph_max.o	d216c6b0c9c8c3a1
+9	12982	1716380548939921569	/home/lzx/lzx/CPU_simulation/test/build/temp.linux-x86_64-cpython-311/graph_max.o	5ae6351bf44d6a75
