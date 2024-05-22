@@ -4,7 +4,7 @@
 // #include <cmath>
 // sdsds
 void graph_max_cuda(const torch::Tensor data, torch::Tensor max_val);
-
+// qwqwqw
 at::Tensor graph_max(torch::Tensor data) {
     
     std::cout<<"asdfasdf";
