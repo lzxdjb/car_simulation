@@ -11,7 +11,7 @@ at::Tensor graph_max(torch::Tensor data) {
     return data;
 
 }
-
+// as
 PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
     m.def("graph_max", &graph_max, "Graph Max CUDA");
 }
