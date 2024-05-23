@@ -1,5 +1,6 @@
 cpu.cpp
 setup.py
+/media/lzx/lzx/lzx/car_simulation/src/tinympc/admm.cpp
 cpu.egg-info/PKG-INFO
 cpu.egg-info/SOURCES.txt
 cpu.egg-info/dependency_links.txt

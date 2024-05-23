@@ -1,0 +1,6 @@
+# ninja log v5
+0	14872	1716444531950000000	/media/lzx/lzx/lzx/car_simulation/cpu_simulation_example/build/temp.linux-x86_64-cpython-311/cpu.o	984ad865b723807
+8	14587	1716444627290000000	/media/lzx/lzx/lzx/car_simulation/cpu_simulation_example/build/temp.linux-x86_64-cpython-311/cpu.o	984ad865b723807
+8	2041	1716445006530000000	/media/lzx/lzx/lzx/car_simulation/cpu_simulation_example/build/temp.linux-x86_64-cpython-311/media/lzx/lzx/lzx/car_simulation/src/tinympc/admm.o	e5293276623e1f1a
+9	14893	1716445019380000000	/media/lzx/lzx/lzx/car_simulation/cpu_simulation_example/build/temp.linux-x86_64-cpython-311/cpu.o	984ad865b723807
+10	14750	1716445091800000000	/media/lzx/lzx/lzx/car_simulation/cpu_simulation_example/build/temp.linux-x86_64-cpython-311/cpu.o	984ad865b723807

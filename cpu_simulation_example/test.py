@@ -5,7 +5,7 @@ import casadi as ca
 import casadi.tools as ca_tools
 
 import numpy as np
-from draw import Draw_MPC_point_stabilization_v1
+from cpu_simulation_example.draw import Draw_MPC_point_stabilization_v1
 import time
 
 from torch.utils.cpp_extension import load

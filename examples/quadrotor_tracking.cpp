@@ -12,7 +12,6 @@
 // check this paper for more details: https://ieeexplore.ieee.org/document/9326337
 // Inputs: u1, u2, u3, u4 (motor thrust 0-1, order from Crazyflie)
 
-
 #define NSTATES 12
 #define NINPUTS 4
 
@@ -35,7 +34,7 @@ extern "C"
     TinySettings settings;
     TinySolver solver{&settings, &cache, &work};
 
-    typedef Matrix<tinytype, NINPUTS, NHORIZON-1> tiny_MatrixNuNhm1;
+    typedef Matrix<tinytype, NINPUTS, NHORIZON - 1> tiny_MatrixNuNhm1;
     typedef Matrix<tinytype, NSTATES, NHORIZON> tiny_MatrixNxNh;
     typedef Matrix<tinytype, NSTATES, 1> tiny_VectorNx;
 
@@ -52,7 +51,6 @@ extern "C"
         work.Bdyn = Map<Matrix<tinytype, NSTATES, NINPUTS, RowMajor>>(Bdyn_data);
         work.Q = Map<Matrix<tinytype, NSTATES, 1>>(Q_data);
         work.R = Map<Matrix<tinytype, NINPUTS, 1>>(R_data);
-
 
         // TODO: Make function to handle variable initialization so specific important parts (like nx, nu, and N) aren't forgotten
         work.nx = NSTATES;
@@ -88,7 +86,6 @@ extern "C"
         work.status = 0;
         work.iter = 0;
 
-
         settings.abs_pri_tol = 0.001;
         settings.abs_dua_tol = 0.001;
         settings.max_iter = 100;
@@ -105,7 +102,6 @@ extern "C"
         // Initial state
         x0 = work.Xref.col(0);
 
-    
         for (int k = 0; k < NTOTAL - NHORIZON; ++k)
         {
             std::cout << "tracking error: " << (x0 - work.Xref.col(1)).norm() << std::endl;
@@ -119,7 +115,6 @@ extern "C"
             // 3. Reset dual variables if needed
             work.y = tiny_MatrixNuNhm1::Zero();
             work.g = tiny_MatrixNxNh::Zero();
-
 
             // 4. Solve MPC problem
             tiny_solve(&solver);
@@ -136,6 +131,5 @@ extern "C"
 
         // return 0;
     }
-
 
 } /* extern "C" */
