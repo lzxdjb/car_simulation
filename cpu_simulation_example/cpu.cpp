@@ -13,6 +13,8 @@ using namespace std;
 #include "trajectory_data/quadrotor_20hz_y_axis_line.hpp"
 #include <tinympc/admm.hpp>
 
+Eigen::IOFormat CleanFmt(4, 0, ", ", "\n", "[", "]");
+
 TinyCache cache;
 TinyWorkspace work;
 TinySettings settings;
@@ -22,7 +24,7 @@ typedef Matrix<tinytype, NINPUTS, NHORIZON - 1> tiny_MatrixNuNhm1;
 typedef Matrix<tinytype, NSTATES, NHORIZON> tiny_MatrixNxNh;
 typedef Matrix<tinytype, NSTATES, 1> tiny_VectorNx;
 
-void graph_max_cpu(float *data)
+void graph_max_cpu(double *data)
 {
     cache.rho = rho_value;
     cache.Kinf = Map<Matrix<tinytype, NINPUTS, NSTATES, RowMajor>>(Kinf_data);
@@ -85,37 +87,59 @@ void graph_max_cpu(float *data)
     x0 = work.Xref.col(0);
     // cout<<"asdfasdf";
 
-    for (int i = 0; i < 3; ++i)
-    {
-        data[i] = i + 1.0; // Appending [1.1, 2.0, 3.0]
-    }
+    // for (int i = 0; i < 3; ++i)
+    // {
+    //     data[i] = i + 1.0; // Appending [1.1, 2.0, 3.0]
+    // }
 
     for (int k = 0; k < NTOTAL - NHORIZON; ++k)
-        {
-            std::cout << "tracking error: " << (x0 - work.Xref.col(1)).norm() << std::endl;
+    {
+        std::cout << "tracking error: " << (x0 - work.Xref.col(1)).norm() << std::endl;
 
-            // 1. Update measurement
-            work.x.col(0) = x0;
+        // 1. Update measurement
+        work.x.col(0) = x0;
 
-            // 2. Update reference
-            work.Xref = Xref_total.block<NSTATES, NHORIZON>(0, k);
+        // 2. Update reference
+        work.Xref = Xref_total.block<NSTATES, NHORIZON>(0, k);
 
-            // 3. Reset dual variables if needed
-            work.y = tiny_MatrixNuNhm1::Zero();
-            work.g = tiny_MatrixNxNh::Zero();
+        // 3. Reset dual variables if needed
+        work.y = tiny_MatrixNuNhm1::Zero();
+        work.g = tiny_MatrixNxNh::Zero();
 
-            // 4. Solve MPC problem
-            tiny_solve(&solver);
+        // 4. Solve MPC problem
+        tiny_solve(&solver);
 
-            // std::cout << work.iter << std::endl;
-            // std::cout << work.u.col(0).transpose().format(CleanFmt) << std::endl;
+        // std::cout << work.iter << std::endl;
+        // std::cout << work.u.col(0).transpose().format(CleanFmt) << std::endl;
 
-            // 5. Simulate forward
-            x1 = work.Adyn * x0 + work.Bdyn * work.u.col(0);
-            x0 = x1;
+        // 5. Simulate forward
+        x1 = work.Adyn * x0 + work.Bdyn * work.u.col(0);
+        x0 = x1;
 
-            // std::cout << x0.transpose().format(CleanFmt) << std::endl;
+        // std::cout << x0.transpose().format(CleanFmt) << std::endl;
+        // std::cout<<x0<<endl;
+
+      
+        int start_index = k * tiny_VectorNx::RowsAtCompileTime;
+        for (int j = 0; j < tiny_VectorNx::RowsAtCompileTime; ++j) {
+            data[start_index + j] = x0[j];
         }
+    
+    }
+
+
+    // quick test
+
+    // for (int i = 0; i < x0.size(); ++i) {
+    //     x0[i] = static_cast<tinytype>(i);
+    // }
+
+    // for (int i = 0; i < 1; ++i) {
+    //     int start_index = i * tiny_VectorNx::RowsAtCompileTime;
+    //     for (int j = 0; j < tiny_VectorNx::RowsAtCompileTime; ++j) {
+    //         data[start_index + j] = x0[j];
+    //     }
+    // }
 }
 
 at::Tensor cpu(torch::Tensor data_s)
@@ -124,10 +148,10 @@ at::Tensor cpu(torch::Tensor data_s)
     torch::Tensor append_tensor = torch::tensor({1.1, 2.0, 3.0});
     data_s = torch::cat({data_s, append_tensor}, 0);
 
-    auto point_index = data_s.new_zeros({128});
+    auto point_index = data_s.new_zeros({400 , 12});
     // cout<<point_index<<endl;
 
-    graph_max_cpu(point_index.data<float>());
+    graph_max_cpu(point_index.data_ptr<double>());
     // cout << "after that" << point_index << endl;
 
     return point_index;
