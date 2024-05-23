@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/quadrotor_tracking.dir/quadrotor_tracking.cpp.o -o quadrotor_tracking  ../src/tinympc/libtinympc.a 

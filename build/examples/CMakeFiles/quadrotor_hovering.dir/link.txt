@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/quadrotor_hovering.dir/quadrotor_hovering.cpp.o -o quadrotor_hovering  ../src/tinympc/libtinympc.a 
