@@ -2,11 +2,15 @@ from setuptools import setup
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 
 setup(
-    name='graph_max',
+    name='cpu',
     ext_modules=[
         CUDAExtension(
-            name='graph_max',
-            sources=['graph_max.cpp'],
+            name='cpu',
+            # sources=['cpu.cpp'],
+            sources=['cpu.cpp'],
+            include_dirs=['/media/lzx/lzx/lzx/car_simulation/include/Eigen',
+            '/media/lzx/lzx/lzx/car_simulation/examples',
+            '/media/lzx/lzx/lzx/car_simulation/src/'],  
         )
     ],
     cmdclass={

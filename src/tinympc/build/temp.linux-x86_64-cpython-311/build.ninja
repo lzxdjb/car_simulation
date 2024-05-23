@@ -1,8 +1,8 @@
 ninja_required_version = 1.3
 cxx = c++
 
-cflags = -pthread -B /home/lzx/anaconda3/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/lzx/anaconda3/include -fPIC -O2 -isystem /home/lzx/anaconda3/include -fPIC -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include/TH -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda-11.8/include -I/home/lzx/anaconda3/include/python3.11 -c
-post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=graph_max -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+cflags = -pthread -B /home/lzx/anaconda3/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/lzx/anaconda3/include -fPIC -O2 -isystem /home/lzx/anaconda3/include -fPIC -I/media/lzx/lzx/lzx/car_simulation/include/Eigen -I/media/lzx/lzx/lzx/car_simulation/examples -I/media/lzx/lzx/lzx/car_simulation/src/ -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include/TH -I/home/lzx/anaconda3/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda-11.8/include -I/home/lzx/anaconda3/include/python3.11 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=cpu -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
 cuda_dlink_post_cflags = 
 ldflags = 
 
@@ -15,7 +15,7 @@ rule compile
 
 
 
-build /media/lzx/lzx/lzx/car_simulation/src/tinympc/build/temp.linux-x86_64-cpython-311/graph_max.o: compile /media/lzx/lzx/lzx/car_simulation/src/tinympc/graph_max.cpp
+build /media/lzx/lzx/lzx/car_simulation/src/tinympc/build/temp.linux-x86_64-cpython-311/cpu.o: compile /media/lzx/lzx/lzx/car_simulation/src/tinympc/cpu.cpp
 
 
 
